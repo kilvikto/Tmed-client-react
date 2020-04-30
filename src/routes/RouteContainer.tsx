@@ -33,7 +33,6 @@ const RouteContainer: React.FC<IRouteContainer> = ({
   );
 };
 
-
 const mapToProps = (state) => ({
   user: AuthSelector.getUser(state),
 });

@@ -1,2 +1,0 @@
-directory that have models, meaning all functions with API calls, reducer, redux state and selectors. (Based on data coming from backend).
-Also there is cookie.ts file what shares single cookie constant between models

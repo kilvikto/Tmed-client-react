@@ -32,7 +32,6 @@ const GenInfoUI = styled.div`
 const ClinicalInfoUI = styled.div`
 `;
 
-/* spec info area */
 const SpecInfoUI = styled.div`
 `;
 
@@ -56,9 +55,7 @@ const BaseSelect = styled.select`
   margin-left: 25%;
 `;
 const BaseOption = styled.option``;
-/* end area */
 
-/*form area */
 const BaseForm = styled(AuthForm)` 
   display: block;
   min-height: 20rem;
@@ -111,7 +108,6 @@ const ContentTitle = styled(Heading)`
   text-align: center;
   font-size: 1.5rem;
 `;
-/* end area */
 
 interface IPacient {
   general?: any,
@@ -137,19 +133,19 @@ const Pacient: React.FC<IPacient> = memo(({
 }) => {
 
   const [generalState, setGeneral] = useState({
-    name: general.name,
-    surname: general.surname,
-    birthday: general.birthday,
-    gender: general.gender,
-    email: general.email,
-    telefon_num: general.telefon_num,
-    country: general.country,
-    city: general.city,
-    street: general.street,
-    house_num: general.house_num,
-    height: general.height,
-    weight: general.weight,
-    note: general.note,
+    name: general.name || '',
+    surname: general.surname || '',
+    birthday: general.birthday || '',
+    gender: general.gender || '',
+    email: general.email || '',
+    telefon_num: general.telefon_num || '',
+    country: general.country || '',
+    city: general.city || '',
+    street: general.street || '',
+    house_num: general.house_num || '',
+    height: general.height || '',
+    weight: general.weight || '',
+    note: general.note || '',
     doctorId: general.doctorId || '',
     doctorEmail: general.doctorEmail || '', 
   });
@@ -213,13 +209,24 @@ const Pacient: React.FC<IPacient> = memo(({
 
   const mapInputs = (data) => {
     return Object.keys(data).map((key: string) => {
-      const value = data[key];
+			const value = data[key];
+			let substituteKey;
       if (key === 'note' || key === 'doctorId' || key === 'doctorEmail') return null;
-      if (key === 'telefon_num') key = 'tel number';
-      if (key === 'house_num') key = 'house number'; 
+      if (key === 'telefon_num') substituteKey = 'Telefon number';
+			if (key === 'house_num') substituteKey = 'House number';
+			if (key === 'name') substituteKey = 'Name'; 
+			if (key === 'surname') substituteKey = 'Surname'; 
+			if (key === 'birthday') substituteKey = 'Birthday'; 
+			if (key === 'gender') substituteKey = 'Gender'; 
+			if (key === 'email') substituteKey = 'Email'; 
+			if (key === 'country') substituteKey = 'Country'; 
+			if (key === 'city') substituteKey = 'City'; 
+			if (key === 'street') substituteKey = 'Street'; 
+			if (key === 'height') substituteKey = 'Height';
+			if (key === 'weight') substituteKey = 'Weight';  
       return (
-        <InputContainer key={key}>
-          <BaseLabel htmlFor={key}>{key}:</BaseLabel>
+        <InputContainer key={substituteKey ? substituteKey : key}>
+          <BaseLabel htmlFor={substituteKey ? substituteKey : key}>{substituteKey ? substituteKey : key}:</BaseLabel>
           <BaseInput
             type={key === "email" ? key : "text"} 
             id={key}

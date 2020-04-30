@@ -71,7 +71,6 @@ export const AuthAction = {
   logOut: () => (dispatch) => {
     setAuthorizationToken(null);
     cookies.remove('user');
-    //also remove cookies of another models right here
     return dispatch({
       type: USER_LOGOUT
     });

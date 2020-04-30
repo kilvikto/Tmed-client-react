@@ -124,12 +124,12 @@ const ErrMessage= styled.h5`
 
 interface IAuth {
   history: any,
-  _request: {
+  _request: { 
     isLoading: boolean,
     error: string 
   },
   authenticate: (creds: { email: string, password: string }) => void,
-  register: (creds: { email: string, password: string, role: string  }) => void,
+  register: (creds: { email: string, password: string, role: string }) => void,
 };
 
 const LOGIN_ROUTE = '/login';
@@ -325,10 +325,8 @@ const Auth: React.FC<IAuth> = ({
 const stateToProps = (state) => ({
   _request: AuthSelector.getRequestState(state)
 });
-
 const dispatchToProps = (dispatch) => ({
   authenticate: (credentials) => dispatch(AuthAction.authenticate(credentials)),
   register: (credentials) => dispatch(AuthAction.register(credentials)),
 });
-
-export default connect(stateToProps, dispatchToProps)(Auth);
+export default connect(stateToProps, dispatchToProps)(Auth); 

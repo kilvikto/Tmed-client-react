@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom'; 
 
 
-const ProtectedRoute = ({ // HOC high-order-component
+const ProtectedRoute = ({ 
   component: Component,
   user,
   path,
@@ -10,12 +10,10 @@ const ProtectedRoute = ({ // HOC high-order-component
 }) => {
   const authenticated = user.nameId && user.role;
   const isAuthRoute = path === '/login' || path === '/signup';
-
   if (authenticated && isAuthRoute) return <Redirect to='/profile' />
   else if (!authenticated && isAuthRoute) {
     return <Route {...rest} path={path} render={props => <Component {...props} />} />;
   }; 
-  
   return (
     <Route 
       {...rest} 

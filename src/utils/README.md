@@ -1,1 +1,0 @@
-In that directory u can find functions needed to transform date from one format to another, or set axios headers, there are helpers.

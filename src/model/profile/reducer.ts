@@ -29,13 +29,12 @@ const ALL_DOCTORS_LOADED = "@@profile/ALL_DOCTORS_LOADED";
 const RECORDS_LOADED = "@@profile/RECORDS_LOADED";
 const CLINIC_HIS_LOADED = "@@profile/PACIENT_CLINIC_HISTORY";
 
-//action creator
 export const ProfileAction = {
   getDoctorPacients: () => dispatch => {
     return fetchDoctorPacients()
       .then(({ data }) => {
         console.log(DOCTOR_PACIENTS_LOADED, data);
-        dispatch(doctorPacientsLoaded(data)) // ( id, email zatim)
+        dispatch(doctorPacientsLoaded(data)) 
       })
       .catch(err => {
         console.error(err);
@@ -173,7 +172,7 @@ export const ProfileAction = {
   },
 };
 
-//actions
+
 const doctorPacientsLoaded = (payload) => ({
   type: DOCTOR_PACIENTS_LOADED,   
   payload
@@ -225,7 +224,7 @@ const generalData = {
 
 const initialState = {
   doctor: {
-    pacients: []   /// [{ id: 'fd;ok;odsk', email, name surname }]
+    pacients: []   
   },
   pacient: {
     allDoctors: [],
@@ -236,7 +235,7 @@ const initialState = {
       vaccinations: [],
       diseases: [],
     },
-    records: [], // pro calendar
+    records: [], 
   },
 };
 

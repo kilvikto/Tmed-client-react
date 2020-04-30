@@ -3,9 +3,8 @@ import styled from 'styled-components';
 
 
 const InfoBlock = styled.section`
-  min-height: 30rem;
-  min-width: 295px;
-  max-height: 35rem;
+	box-sizing: border-box;
+	margin-left: 10%;
 `;
 
 const InnerBlock = styled.div`

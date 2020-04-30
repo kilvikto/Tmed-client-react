@@ -12,28 +12,28 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   height: 100%;
-  width: 90%;
+	width: 90%;
   padding: 1.2rem;
-  margin: 0 auto;
   box-sizing: border-box;
   border-top: 1px solid black;
   color: #173019;
 `;
 
 const Container = styled.div`
-  display: flex;
-  justify-content: flex-start;
+	display: flex;
+	width: 100%;
+	justify-content: flex-start;
   height: 100%;
-  max-width: 70rem;
 `;
 
 const CalendarBlock = styled.section`
+	padding-left: 7%;
   height: 30rem;
   width: 25rem;
 `;
 
 const Heading = styled.h2`
-  text-align: left;
+  text-align: center;
 `;
 
 const PinnedIcon = styled.img`
@@ -103,8 +103,8 @@ const CalendarBox: React.FC<ICalendar> = memo(({
     <Wrapper>
       <Container>
         <CalendarBlock>
-          <Heading>Pacient calendar</Heading>    
-          <Calendar
+          <Heading>Patient calendar</Heading>    
+					<Calendar
             onClickDay={toggleActiveRecord}
             tileContent={(e) => { 
               const pinnedRecord = records.find(rec => 
